@@ -97,9 +97,6 @@ func main() {
 					Committer: &github.CommitAuthor{Name: &githubuser, Email: &githubemail},
 				}
 
-				// TODO: make target path a variable
-				// TODO: add folder support within grafana that will map to repo folders under target
-				// TODO: add label for dashboard name or use filename as dashboard name
 				contentResponse, response, err := githubClient.Repositories.CreateFile(context.TODO(), githubowner, githubrepo, filepath.Join(githubpath, filename), options)
 				if err == nil {
 					fmt.Println(response.Response.StatusCode)
